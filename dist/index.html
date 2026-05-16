@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSME Hub — Soon Seng Motors Enterprise</title>
+<meta name="description" content="Internal dealer management portal — Soon Seng Motors Enterprise (1988) Sdn. Bhd., Kota Bharu, Kelantan">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #CC0000;
+    --white: #FFFFFF;
+    --bg: #F2F2F2;
+    --charcoal: #1A1A1A;
+    --border: #DCDCDC;
+    --text: #1A1A1A;
+    --muted: #888888;
+  }
+
+  body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--red);
+    padding: 0 40px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .hino-badge {
+    background: white;
+    color: var(--red);
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border-radius: 3px;
+    line-height: 1;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .header-title .hub-name {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.5px;
+  }
+
+  .header-title .company-name {
+    display: block;
+    font-size: 11px;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .live-dot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.85);
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .live-dot::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ADE80;
+    box-shadow: 0 0 0 3px rgba(74,222,128,0.25);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(74,222,128,0.25); }
+    50%       { box-shadow: 0 0 0 6px rgba(74,222,128,0.1); }
+  }
+
+  .header-date {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    align-items: stretch;
+    overflow-x: auto;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 32px 18px 0;
+    margin-right: 32px;
+    border-right: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .stat-icon.red   { background: #FFEEEE; }
+  .stat-icon.blue  { background: #EEF0FF; }
+  .stat-icon.green { background: #EDFFF5; }
+  .stat-icon.amber { background: #FFF8EE; }
+
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .stat-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+
+  /* MAIN */
+  main {
+    flex: 1;
+    padding: 40px;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  /* APP GRID */
+  .app-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .app-tile {
+    border-radius: 10px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  .app-tile.live {
+    background: var(--charcoal);
+    color: white;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .app-tile.live:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+  }
+
+  .app-tile.live::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--red);
+  }
+
+  .app-tile.soon {
+    background: white;
+    border: 1px solid var(--border);
+    cursor: default;
+    opacity: 0.7;
+  }
+
+  .tile-icon { font-size: 32px; line-height: 1; }
+
+  .tile-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .app-tile.live .tile-name { color: white; }
+  .app-tile.soon .tile-name { color: #555; }
+
+  .tile-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .app-tile.live .tile-desc { color: rgba(255,255,255,0.6); }
+  .app-tile.soon .tile-desc { color: var(--muted); }
+
+  .tile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+    width: fit-content;
+  }
+
+  .tile-badge.live-badge {
+    background: var(--red);
+    color: white;
+  }
+
+  .tile-badge.live-badge::before {
+    content: '●';
+    font-size: 7px;
+    animation: blink 2s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+
+  .tile-badge.soon-badge {
+    background: #EBEBEB;
+    color: #999;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+  }
+
+  .footer-left {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .footer-left strong { color: var(--text); }
+
+  .version-tag {
+    font-size: 11px;
+    background: #F0F0F0;
+    color: #888;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    header { padding: 0 20px; }
+    .company-name { display: none !important; }
+    .stats-bar { padding: 0 20px; }
+    main { padding: 24px 20px; }
+    .app-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    footer { padding: 14px 20px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .app-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="hino-badge">HINO</div>
+    <div class="header-title">
+      <span class="hub-name">SSME Hub</span>
+      <span class="company-name">Soon Seng Motors Enterprise (1988) Sdn. Bhd.</span>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="live-dot">System Online</span>
+    <span class="header-date" id="live-date"></span>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-icon red">📋</div>
+    <div>
+      <div class="stat-label">Active Quotes</div>
+      <div class="stat-value" id="stat-quotes">—</div>
+      <div class="stat-sub">This month</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon blue">🚛</div>
+    <div>
+      <div class="stat-label">Units Sold</div>
+      <div class="stat-value">—</div>
+      <div class="stat-sub">This month</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon green">🔧</div>
+    <div>
+      <div class="stat-label">Workshop Jobs</div>
+      <div class="stat-value">—</div>
+      <div class="stat-sub">In progress</div>
+    </div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-icon amber">📦</div>
+    <div>
+      <div class="stat-label">Units In Stock</div>
+      <div class="stat-value">—</div>
+      <div class="stat-sub">Ready for sale</div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="section-label">Applications</div>
+  <div class="app-grid">
+
+    <a class="app-tile live" href="https://quotation.ssmehub.com" target="_blank">
+      <div class="tile-icon">📄</div>
+      <div class="tile-name">Quotation</div>
+      <div class="tile-desc">Build and manage truck quotes. Hino, Daihatsu, Hohan. Print-ready PDF output.</div>
+      <div class="tile-badge live-badge">Live</div>
+    </a>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">🔧</div>
+      <div class="tile-name">Workshop</div>
+      <div class="tile-desc">Job cards, service history, technician assignments.</div>
+      <div class="tile-badge soon-badge">Coming Soon</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">⚙️</div>
+      <div class="tile-name">Parts</div>
+      <div class="tile-desc">Spare parts inventory, reorder levels, supplier orders.</div>
+      <div class="tile-badge soon-badge">Coming Soon</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">🚛</div>
+      <div class="tile-name">Stock</div>
+      <div class="tile-desc">Units on-hand, in transit, reserved. By model and chassis.</div>
+      <div class="tile-badge soon-badge">Coming Soon</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">🏦</div>
+      <div class="tile-name">HP & Loans</div>
+      <div class="tile-desc">Hire purchase applications. Maybank, PBB, CIMB tracking.</div>
+      <div class="tile-badge soon-badge">Coming Soon</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">🗓️</div>
+      <div class="tile-name">Delivery</div>
+      <div class="tile-desc">PDI checklist, delivery scheduling and handover records.</div>
+      <div class="tile-badge soon-badge">Coming Soon</div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-left">
+    &copy; 2026 <strong>Soon Seng Motors Enterprise (1988) Sdn. Bhd.</strong> &mdash; Kota Bharu, Kelantan
+  </div>
+  <span class="version-tag">v1.0</span>
+</footer>
+
+<script>
+  function updateDate() {
+    const now = new Date();
+    document.getElementById('live-date').textContent = now.toLocaleDateString('en-MY', {
+      weekday: 'short', day: 'numeric', month: 'short', year: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+  }
+  updateDate();
+  setInterval(updateDate, 60000);
+</script>
+</body>
+</html>

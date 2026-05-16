@@ -1,0 +1,9 @@
+name = "ssme-portal"
+compatibility_date = "2025-01-01"
+
+routes = [
+  { pattern = "ssmehub.com/*", zone_id = "12a4f0e8cf4239fe804936dba7ec80e8" }
+]
+
+[assets]
+directory = "./dist"
