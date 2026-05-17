@@ -176,7 +176,7 @@
   main {
     flex: 1;
     padding: 40px;
-    max-width: 1100px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
   }
@@ -190,19 +190,47 @@
     margin-bottom: 20px;
   }
 
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .phase-legend {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
   /* APP GRID */
   .app-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
   }
 
   .app-tile {
     border-radius: 10px;
-    padding: 28px 24px;
+    padding: 24px 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     position: relative;
     overflow: hidden;
     text-decoration: none;
@@ -233,13 +261,13 @@
     background: white;
     border: 1px solid var(--border);
     cursor: default;
-    opacity: 0.7;
+    opacity: 0.75;
   }
 
-  .tile-icon { font-size: 32px; line-height: 1; }
+  .tile-icon { font-size: 28px; line-height: 1; }
 
   .tile-name {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.2px;
   }
@@ -247,8 +275,18 @@
   .app-tile.live .tile-name { color: white; }
   .app-tile.soon .tile-name { color: #555; }
 
+  .tile-dept {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+
+  .app-tile.live .tile-dept { color: rgba(255,255,255,0.45); }
+  .app-tile.soon .tile-dept { color: #bbb; }
+
   .tile-desc {
-    font-size: 12px;
+    font-size: 11.5px;
     line-height: 1.5;
     flex: 1;
   }
@@ -267,6 +305,7 @@
     padding: 3px 9px;
     border-radius: 20px;
     width: fit-content;
+    margin-top: 2px;
   }
 
   .tile-badge.live-badge {
@@ -285,10 +324,10 @@
     50%       { opacity: 0.3; }
   }
 
-  .tile-badge.soon-badge {
-    background: #EBEBEB;
-    color: #999;
-  }
+  .tile-badge.p1 { background: #FFEAEA; color: #CC2200; }
+  .tile-badge.p2 { background: #FFF3E0; color: #D4660A; }
+  .tile-badge.p3 { background: #FFF8DC; color: #9A7A00; }
+  .tile-badge.p4 { background: #F0F7EE; color: #4A8040; }
 
   /* FOOTER */
   footer {
@@ -315,12 +354,17 @@
     border-radius: 4px;
   }
 
+  @media (max-width: 900px) {
+    .app-grid { grid-template-columns: repeat(3, 1fr); }
+    .phase-legend { display: none; }
+  }
+
   @media (max-width: 768px) {
     header { padding: 0 20px; }
     .company-name { display: none !important; }
     .stats-bar { padding: 0 20px; }
     main { padding: 24px 20px; }
-    .app-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .app-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
     footer { padding: 14px 20px; flex-direction: column; gap: 8px; text-align: center; }
   }
 
@@ -381,49 +425,103 @@
 </div>
 
 <main>
-  <div class="section-label">Applications</div>
+  <div class="section-header">
+    <div class="section-label">Applications &amp; Roadmap</div>
+    <div class="phase-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#CC2200"></div> Phase 1 — Critical</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#D4660A"></div> Phase 2 — High</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#9A7A00"></div> Phase 3 — Medium</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4A8040"></div> Phase 4 — Low</div>
+    </div>
+  </div>
   <div class="app-grid">
 
     <a class="app-tile live" href="https://quotation.ssmehub.com" target="_blank">
       <div class="tile-icon">📄</div>
+      <div class="tile-dept">Sales</div>
       <div class="tile-name">Quotation</div>
-      <div class="tile-desc">Build and manage truck quotes. Hino, Daihatsu, Hohan. Print-ready PDF output.</div>
+      <div class="tile-desc">Build and manage truck quotes. Hino, Isuzu, Daihatsu, Hohan. Print-ready PDF output.</div>
       <div class="tile-badge live-badge">Live</div>
     </a>
 
     <div class="app-tile soon">
-      <div class="tile-icon">🔧</div>
-      <div class="tile-name">Workshop</div>
-      <div class="tile-desc">Job cards, service history, technician assignments.</div>
-      <div class="tile-badge soon-badge">Coming Soon</div>
-    </div>
-
-    <div class="app-tile soon">
-      <div class="tile-icon">⚙️</div>
-      <div class="tile-name">Parts</div>
-      <div class="tile-desc">Spare parts inventory, reorder levels, supplier orders.</div>
-      <div class="tile-badge soon-badge">Coming Soon</div>
+      <div class="tile-icon">👥</div>
+      <div class="tile-dept">Sales / Admin</div>
+      <div class="tile-name">Customer &amp; Fleet DB</div>
+      <div class="tile-desc">Single source of truth for all customers and their vehicles. SLD tracking, proactive marketing.</div>
+      <div class="tile-badge p1">Phase 1</div>
     </div>
 
     <div class="app-tile soon">
       <div class="tile-icon">🚛</div>
-      <div class="tile-name">Stock</div>
-      <div class="tile-desc">Units on-hand, in transit, reserved. By model and chassis.</div>
-      <div class="tile-badge soon-badge">Coming Soon</div>
+      <div class="tile-dept">Sales</div>
+      <div class="tile-name">Stock Card &amp; WIP</div>
+      <div class="tile-desc">Replace WhatsApp + Google Sheets. Track every unit from PO to delivery, with cashflow projection.</div>
+      <div class="tile-badge p1">Phase 1</div>
     </div>
 
     <div class="app-tile soon">
-      <div class="tile-icon">🏦</div>
-      <div class="tile-name">HP & Loans</div>
-      <div class="tile-desc">Hire purchase applications. Maybank, PBB, CIMB tracking.</div>
-      <div class="tile-badge soon-badge">Coming Soon</div>
+      <div class="tile-icon">📣</div>
+      <div class="tile-dept">Workshop Marketing</div>
+      <div class="tile-name">Workshop CRM</div>
+      <div class="tile-desc">Proactive customer follow-up, SLD compliance tracking, parts programme progress and loyalty records.</div>
+      <div class="tile-badge p2">Phase 2</div>
     </div>
 
     <div class="app-tile soon">
-      <div class="tile-icon">🗓️</div>
-      <div class="tile-name">Delivery</div>
-      <div class="tile-desc">PDI checklist, delivery scheduling and handover records.</div>
-      <div class="tile-badge soon-badge">Coming Soon</div>
+      <div class="tile-icon">🔧</div>
+      <div class="tile-dept">Workshop</div>
+      <div class="tile-name">Workshop Ops</div>
+      <div class="tile-desc">Digital job cards, bay utilisation, technician KPI. Service, puspakom, accident and bodywork jobs.</div>
+      <div class="tile-badge p2">Phase 2</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">⚙️</div>
+      <div class="tile-dept">Parts</div>
+      <div class="tile-name">Parts Department</div>
+      <div class="tile-desc">Live stock count, min/max reorder, warranty parts tracking. Replaces manual scanner reconciliation.</div>
+      <div class="tile-badge p2">Phase 2</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">📁</div>
+      <div class="tile-dept">Sales</div>
+      <div class="tile-name">Document Library</div>
+      <div class="tile-desc">Centralised brochures, specs and namecards by brand. One-tap share to WhatsApp or download.</div>
+      <div class="tile-badge p3">Phase 3</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">🔗</div>
+      <div class="tile-dept">Admin / Workshop</div>
+      <div class="tile-name">HDMS Integration</div>
+      <div class="tile-desc">Auto-key invoices into Hino's HDMS system. Eliminate triple-entry for warranty, parts and service.</div>
+      <div class="tile-badge p3">Phase 3</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">🔄</div>
+      <div class="tile-dept">Sales</div>
+      <div class="tile-name">Second Hand &amp; Trade-In</div>
+      <div class="tile-desc">Track secondhand inventory and trade-in pipeline. Know which customer's truck is ready to upgrade.</div>
+      <div class="tile-badge p3">Phase 3</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">📱</div>
+      <div class="tile-dept">Marketing</div>
+      <div class="tile-name">Online Marketing</div>
+      <div class="tile-desc">Facebook, Instagram, TikTok and Google performance in one dashboard. Post calendar and lead tracking.</div>
+      <div class="tile-badge p4">Phase 4</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">🎓</div>
+      <div class="tile-dept">HR / Management</div>
+      <div class="tile-name">HR &amp; Training</div>
+      <div class="tile-desc">Staff training calendar, Hino-mandated compliance tracking, attendance and KPI records.</div>
+      <div class="tile-badge p4">Phase 4</div>
     </div>
 
   </div>
@@ -433,7 +531,7 @@
   <div class="footer-left">
     &copy; 2026 <strong>Soon Seng Motors Enterprise (1988) Sdn. Bhd.</strong> &mdash; Kota Bharu, Kelantan
   </div>
-  <span class="version-tag">v1.0</span>
+  <span class="version-tag">v1.1</span>
 </footer>
 
 <script>
