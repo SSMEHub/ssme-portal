@@ -40,290 +40,142 @@
     top: 0;
     z-index: 100;
   }
-
-  .header-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
+  .header-left { display: flex; align-items: center; gap: 16px; }
   .hino-badge {
-    background: white;
-    color: var(--red);
-    font-weight: 900;
-    font-size: 18px;
-    letter-spacing: 2px;
-    padding: 4px 10px;
-    border-radius: 3px;
-    line-height: 1;
-    text-transform: uppercase;
-    flex-shrink: 0;
+    background: white; color: var(--red); font-weight: 900;
+    font-size: 18px; letter-spacing: 2px; padding: 4px 10px;
+    border-radius: 3px; line-height: 1; text-transform: uppercase; flex-shrink: 0;
   }
-
-  .header-title .hub-name {
-    display: block;
-    font-size: 20px;
-    font-weight: 700;
-    color: white;
-    letter-spacing: 0.5px;
-  }
-
-  .header-title .company-name {
-    display: block;
-    font-size: 11px;
-    color: rgba(255,255,255,0.75);
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
-  }
-
-  .header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .live-dot {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: rgba(255,255,255,0.85);
-    font-size: 12px;
-    font-weight: 500;
-  }
-
+  .header-title .hub-name { display: block; font-size: 20px; font-weight: 700; color: white; letter-spacing: 0.5px; }
+  .header-title .company-name { display: block; font-size: 11px; color: rgba(255,255,255,0.75); letter-spacing: 0.3px; text-transform: uppercase; }
+  .header-right { display: flex; align-items: center; gap: 20px; }
+  .live-dot { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.85); font-size: 12px; font-weight: 500; }
   .live-dot::before {
-    content: '';
-    display: block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #4ADE80;
-    box-shadow: 0 0 0 3px rgba(74,222,128,0.25);
-    animation: pulse 2s infinite;
+    content: ''; display: block; width: 8px; height: 8px; border-radius: 50%;
+    background: #4ADE80; box-shadow: 0 0 0 3px rgba(74,222,128,0.25); animation: pulse 2s infinite;
   }
-
   @keyframes pulse {
     0%, 100% { box-shadow: 0 0 0 3px rgba(74,222,128,0.25); }
     50%       { box-shadow: 0 0 0 6px rgba(74,222,128,0.1); }
   }
-
-  .header-date {
-    color: rgba(255,255,255,0.7);
-    font-size: 13px;
-  }
+  .header-date { color: rgba(255,255,255,0.7); font-size: 13px; }
 
   /* STATS BAR */
   .stats-bar {
-    background: white;
-    border-bottom: 1px solid var(--border);
-    padding: 0 40px;
-    display: flex;
-    align-items: stretch;
-    overflow-x: auto;
+    background: white; border-bottom: 1px solid var(--border);
+    padding: 0 40px; display: flex; align-items: stretch; overflow-x: auto;
   }
-
   .stat-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 18px 32px 18px 0;
-    margin-right: 32px;
-    border-right: 1px solid var(--border);
-    flex-shrink: 0;
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 32px 18px 0; margin-right: 32px;
+    border-right: 1px solid var(--border); flex-shrink: 0;
   }
-
   .stat-item:last-child { border-right: none; }
-
-  .stat-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-
+  .stat-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
   .stat-icon.red   { background: #FFEEEE; }
   .stat-icon.blue  { background: #EEF0FF; }
   .stat-icon.green { background: #EDFFF5; }
   .stat-icon.amber { background: #FFF8EE; }
-
-  .stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-    margin-bottom: 2px;
-  }
-
-  .stat-value {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1;
-  }
-
-  .stat-sub {
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 1px;
-  }
+  .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-bottom: 2px; }
+  .stat-value { font-size: 22px; font-weight: 700; color: var(--text); line-height: 1; }
+  .stat-sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
 
   /* MAIN */
-  main {
-    flex: 1;
-    padding: 40px;
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-  }
+  main { flex: 1; padding: 40px; max-width: 1200px; width: 100%; margin: 0 auto; }
 
-  .section-label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--muted);
-    margin-bottom: 20px;
+  .section-header {
+    display: flex; align-items: baseline; gap: 12px; margin-bottom: 20px; margin-top: 36px;
   }
+  .section-header:first-child { margin-top: 0; }
+  .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
+  .section-note { font-size: 12px; color: var(--muted); }
 
   /* APP GRID */
-  .app-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
+  .app-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
   .app-tile {
-    border-radius: 10px;
-    padding: 28px 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    position: relative;
-    overflow: hidden;
-    text-decoration: none;
+    border-radius: 10px; padding: 24px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+    position: relative; overflow: hidden; text-decoration: none;
   }
-
   .app-tile.live {
-    background: var(--charcoal);
-    color: white;
+    background: var(--charcoal); color: white;
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-    cursor: pointer;
-    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
   }
-
-  .app-tile.live:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.28);
-  }
-
+  .app-tile.live:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.28); }
   .app-tile.live::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--red);
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--red);
   }
-
-  .app-tile.soon {
-    background: white;
-    border: 1px solid var(--border);
-    cursor: default;
-    opacity: 0.7;
+  .app-tile.phase1 {
+    background: white; border: 2px solid #1A1A1A; cursor: default;
   }
+  .app-tile.phase2 { background: white; border: 1px solid #BDBDBD; cursor: default; }
+  .app-tile.phase3 { background: white; border: 1px solid var(--border); cursor: default; opacity: 0.8; }
+  .app-tile.phase4 { background: white; border: 1px solid var(--border); cursor: default; opacity: 0.65; }
+  .app-tile.soon  { background: white; border: 1px solid var(--border); cursor: default; opacity: 0.5; }
 
-  .tile-icon { font-size: 32px; line-height: 1; }
-
-  .tile-name {
-    font-size: 17px;
-    font-weight: 700;
-    letter-spacing: 0.2px;
-  }
-
+  .tile-icon { font-size: 28px; line-height: 1; }
+  .tile-name { font-size: 16px; font-weight: 700; letter-spacing: 0.2px; }
   .app-tile.live .tile-name { color: white; }
-  .app-tile.soon .tile-name { color: #555; }
+  .app-tile:not(.live) .tile-name { color: #222; }
 
-  .tile-desc {
-    font-size: 12px;
-    line-height: 1.5;
-    flex: 1;
-  }
-
+  .tile-desc { font-size: 12px; line-height: 1.55; flex: 1; }
   .app-tile.live .tile-desc { color: rgba(255,255,255,0.6); }
-  .app-tile.soon .tile-desc { color: var(--muted); }
+  .app-tile:not(.live) .tile-desc { color: var(--muted); }
+
+  .tile-features { list-style: none; font-size: 11px; color: #666; margin-top: 4px; }
+  .tile-features li { padding: 1px 0; }
+  .tile-features li::before { content: '· '; color: #aaa; }
 
   .tile-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    text-transform: uppercase;
-    padding: 3px 9px;
-    border-radius: 20px;
-    width: fit-content;
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; padding: 3px 9px; border-radius: 20px; width: fit-content;
   }
+  .tile-badge.live-badge { background: var(--red); color: white; }
+  .tile-badge.live-badge::before { content: '●'; font-size: 7px; animation: blink 2s infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .tile-badge.p1-badge { background: #1A1A1A; color: white; }
+  .tile-badge.p2-badge { background: #555; color: white; }
+  .tile-badge.p3-badge { background: #E0E0E0; color: #555; }
+  .tile-badge.p4-badge { background: #EBEBEB; color: #999; }
+  .tile-badge.soon-badge { background: #F0F0F0; color: #BBB; }
 
-  .tile-badge.live-badge {
-    background: var(--red);
-    color: white;
-  }
-
-  .tile-badge.live-badge::before {
-    content: '●';
-    font-size: 7px;
-    animation: blink 2s infinite;
-  }
-
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.3; }
-  }
-
-  .tile-badge.soon-badge {
-    background: #EBEBEB;
-    color: #999;
-  }
+  /* ROADMAP TABLE */
+  .roadmap-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+  .roadmap-table th { background: #1A1A1A; color: white; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; padding: 10px 16px; text-align: left; }
+  .roadmap-table td { padding: 10px 16px; font-size: 13px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .roadmap-table tr:last-child td { border-bottom: none; }
+  .roadmap-table tr:hover td { background: #FAFAFA; }
+  .priority-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+  .p-critical { background: #CC0000; }
+  .p-high     { background: #E67E00; }
+  .p-medium   { background: #2563EB; }
+  .p-low      { background: #9CA3AF; }
+  .status-pill { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .s-live    { background: #DCFCE7; color: #166534; }
+  .s-next    { background: #1A1A1A; color: white; }
+  .s-backlog { background: #F3F4F6; color: #6B7280; }
 
   /* FOOTER */
   footer {
-    border-top: 1px solid var(--border);
-    padding: 16px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: white;
+    border-top: 1px solid var(--border); padding: 16px 40px;
+    display: flex; align-items: center; justify-content: space-between; background: white;
   }
-
-  .footer-left {
-    font-size: 12px;
-    color: var(--muted);
-  }
-
+  .footer-left { font-size: 12px; color: var(--muted); }
   .footer-left strong { color: var(--text); }
+  .version-tag { font-size: 11px; background: #F0F0F0; color: #888; padding: 2px 8px; border-radius: 4px; }
 
-  .version-tag {
-    font-size: 11px;
-    background: #F0F0F0;
-    color: #888;
-    padding: 2px 8px;
-    border-radius: 4px;
-  }
-
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     header { padding: 0 20px; }
     .company-name { display: none !important; }
     .stats-bar { padding: 0 20px; }
     main { padding: 24px 20px; }
-    .app-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .app-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
     footer { padding: 14px 20px; flex-direction: column; gap: 8px; text-align: center; }
   }
-
   @media (max-width: 480px) {
     .app-grid { grid-template-columns: 1fr; }
   }
@@ -350,16 +202,16 @@
     <div class="stat-icon red">📋</div>
     <div>
       <div class="stat-label">Active Quotes</div>
-      <div class="stat-value" id="stat-quotes">—</div>
+      <div class="stat-value">—</div>
       <div class="stat-sub">This month</div>
     </div>
   </div>
   <div class="stat-item">
     <div class="stat-icon blue">🚛</div>
     <div>
-      <div class="stat-label">Units Sold</div>
+      <div class="stat-label">Units WIP</div>
       <div class="stat-value">—</div>
-      <div class="stat-sub">This month</div>
+      <div class="stat-sub">In production</div>
     </div>
   </div>
   <div class="stat-item">
@@ -373,67 +225,321 @@
   <div class="stat-item">
     <div class="stat-icon amber">📦</div>
     <div>
-      <div class="stat-label">Units In Stock</div>
-      <div class="stat-value">—</div>
-      <div class="stat-sub">Ready for sale</div>
+      <div class="stat-label">Modules Live</div>
+      <div class="stat-value">1 / 10</div>
+      <div class="stat-sub">Platform build progress</div>
     </div>
   </div>
 </div>
 
 <main>
-  <div class="section-label">Applications</div>
-  <div class="app-grid">
 
+  <!-- LIVE -->
+  <div class="section-header">
+    <div class="section-label">Live Now</div>
+  </div>
+  <div class="app-grid" style="grid-template-columns: repeat(3,1fr); margin-bottom: 0;">
     <a class="app-tile live" href="https://quotation.ssmehub.com" target="_blank">
       <div class="tile-icon">📄</div>
       <div class="tile-name">Quotation</div>
-      <div class="tile-desc">Build and manage truck quotes. Hino, Daihatsu, Hohan. Print-ready PDF output.</div>
+      <div class="tile-desc">Build and manage truck quotes. Hino, Isuzu, Daihatsu, Hohan. AI Quick Start. Print-ready PDF.</div>
+      <ul class="tile-features" style="color:rgba(255,255,255,0.5)">
+        <li>Quote builder + pipeline</li>
+        <li>Customer management</li>
+        <li>Photo library + lorry plans</li>
+        <li>AI-powered Quick Start</li>
+      </ul>
       <div class="tile-badge live-badge">Live</div>
     </a>
-
-    <div class="app-tile soon">
-      <div class="tile-icon">🔧</div>
-      <div class="tile-name">Workshop</div>
-      <div class="tile-desc">Job cards, service history, technician assignments.</div>
-      <div class="tile-badge soon-badge">Coming Soon</div>
-    </div>
-
-    <div class="app-tile soon">
-      <div class="tile-icon">⚙️</div>
-      <div class="tile-name">Parts</div>
-      <div class="tile-desc">Spare parts inventory, reorder levels, supplier orders.</div>
-      <div class="tile-badge soon-badge">Coming Soon</div>
-    </div>
-
-    <div class="app-tile soon">
-      <div class="tile-icon">🚛</div>
-      <div class="tile-name">Stock</div>
-      <div class="tile-desc">Units on-hand, in transit, reserved. By model and chassis.</div>
-      <div class="tile-badge soon-badge">Coming Soon</div>
-    </div>
-
-    <div class="app-tile soon">
-      <div class="tile-icon">🏦</div>
-      <div class="tile-name">HP & Loans</div>
-      <div class="tile-desc">Hire purchase applications. Maybank, PBB, CIMB tracking.</div>
-      <div class="tile-badge soon-badge">Coming Soon</div>
-    </div>
-
-    <div class="app-tile soon">
-      <div class="tile-icon">🗓️</div>
-      <div class="tile-name">Delivery</div>
-      <div class="tile-desc">PDI checklist, delivery scheduling and handover records.</div>
-      <div class="tile-badge soon-badge">Coming Soon</div>
-    </div>
-
   </div>
+
+  <!-- PHASE 1 -->
+  <div class="section-header">
+    <div class="section-label">Phase 1 — Foundation</div>
+    <div class="section-note">Building next · Estimated Q3 2026</div>
+  </div>
+  <div class="app-grid">
+    <div class="app-tile phase1">
+      <div class="tile-icon">🗂️</div>
+      <div class="tile-name">Customer & Fleet Database</div>
+      <div class="tile-desc">Every truck ever sold. Every customer. Central brain for all other modules.</div>
+      <ul class="tile-features">
+        <li>Full vehicle records per chassis</li>
+        <li>Document upload: geran, insurance, puspakom, invoice</li>
+        <li>SQL Accounting + HDMS import</li>
+        <li>Vehicle age tracking → marketing triggers</li>
+        <li>Fleet health database</li>
+      </ul>
+      <div class="tile-badge p1-badge">Phase 1 · Critical</div>
+    </div>
+
+    <div class="app-tile phase1">
+      <div class="tile-icon">📊</div>
+      <div class="tile-name">Stock Card & WIP Tracker</div>
+      <div class="tile-desc">Replaces Google Sheets + WhatsApp updates. Know exactly where every truck is in the pipeline.</div>
+      <ul class="tile-features">
+        <li>Per-unit pipeline: Chassis → Bodywork → Test → JPJ → Bank → Delivered</li>
+        <li>Pending: payment, registration, test, bodywork, chassis, deposit</li>
+        <li>Cashflow projection by disbursement date</li>
+        <li>Mobile-friendly — staff update from phone</li>
+        <li>Overdue alerts to manager</li>
+      </ul>
+      <div class="tile-badge p1-badge">Phase 1 · Critical</div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 -->
+  <div class="section-header">
+    <div class="section-label">Phase 2 — Sales</div>
+    <div class="section-note">Estimated Q4 2026</div>
+  </div>
+  <div class="app-grid">
+    <div class="app-tile phase2">
+      <div class="tile-icon">🔄</div>
+      <div class="tile-name">Second Hand & Trade-In</div>
+      <div class="tile-desc">Track used truck stock, trade-in pipeline, and target customers with aging vehicles.</div>
+      <ul class="tile-features">
+        <li>Secondhand inventory with photos</li>
+        <li>Trade-in inspection + valuation</li>
+        <li>Aging vehicle targeting from fleet database</li>
+        <li>Links to Quotation App trade-in field</li>
+      </ul>
+      <div class="tile-badge p2-badge">Phase 2</div>
+    </div>
+
+    <div class="app-tile phase2">
+      <div class="tile-icon">📁</div>
+      <div class="tile-name">Document Library</div>
+      <div class="tile-desc">Central store for all sales collateral. Staff finds and shares brochures in one tap.</div>
+      <ul class="tile-features">
+        <li>Brochures by brand (Hino, Isuzu, Daihatsu)</li>
+        <li>Namecard designs, Hino specs</li>
+        <li>One-tap share link for WhatsApp</li>
+        <li>Manager-controlled uploads</li>
+      </ul>
+      <div class="tile-badge p2-badge">Phase 2</div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 -->
+  <div class="section-header">
+    <div class="section-label">Phase 3 — Workshop</div>
+    <div class="section-note">Estimated Q1 2027</div>
+  </div>
+  <div class="app-grid">
+    <div class="app-tile phase3">
+      <div class="tile-icon">📣</div>
+      <div class="tile-name">Workshop CRM & Marketing</div>
+      <div class="tile-desc">Proactive customer retention. SLD compliance. Parts programme tracking. Stop losing customers to distance.</div>
+      <ul class="tile-features">
+        <li>SLD tracker: which units fixed / pending / not contacted</li>
+        <li>Hino parts programme progress (units done vs target)</li>
+        <li>Customer visit log (CSO)</li>
+        <li>Vehicle health care report (printable PDF)</li>
+        <li>Puspakom reminder list</li>
+        <li>Loyalty card + merchandise tracking</li>
+      </ul>
+      <div class="tile-badge p3-badge">Phase 3</div>
+    </div>
+
+    <div class="app-tile phase3">
+      <div class="tile-icon">⚙️</div>
+      <div class="tile-name">Parts Department</div>
+      <div class="tile-desc">Inventory control, barcode scanning, oil drum monitoring, warranty + used parts audit trail.</div>
+      <ul class="tile-features">
+        <li>Master parts list (linked to SQL codes)</li>
+        <li>Barcode/QR scan: receive, issue, count</li>
+        <li>Weekly stock count with discrepancy report</li>
+        <li>Predictive min/max per truck model</li>
+        <li>Oil drum % tracking vs invoice output</li>
+        <li>Warranty parts + used parts audit trail</li>
+      </ul>
+      <div class="tile-badge p3-badge">Phase 3</div>
+    </div>
+  </div>
+
+  <!-- PHASE 4 -->
+  <div class="section-header">
+    <div class="section-label">Phase 4 — Advanced Operations</div>
+    <div class="section-note">Estimated Q2 2027</div>
+  </div>
+  <div class="app-grid">
+    <div class="app-tile phase4">
+      <div class="tile-icon">🔧</div>
+      <div class="tile-name">Workshop Operations</div>
+      <div class="tile-desc">"This department is the money." Appointment scheduling, job flow, bay efficiency, technician KPI.</div>
+      <ul class="tile-features">
+        <li>Appointment booking + bay scheduling</li>
+        <li>QR scan per vehicle → instant job sheet</li>
+        <li>Job flow: SA → inspection → quotation → parts → tech → QC → invoice</li>
+        <li>Chief tech assigns to juniors in-system</li>
+        <li>Tech efficiency: actual vs standard hours</li>
+        <li>Rework rate + KPI dashboard per staff</li>
+      </ul>
+      <div class="tile-badge p4-badge">Phase 4</div>
+    </div>
+
+    <div class="app-tile phase4">
+      <div class="tile-icon">🤖</div>
+      <div class="tile-name">HDMS Integration</div>
+      <div class="tile-desc">Auto-key common invoices into Hino's HDMS system. End the 4-step manual keying nightmare.</div>
+      <ul class="tile-features">
+        <li>Phase 1: auto-fill PM service packages (fixed parts)</li>
+        <li>Phase 2: full invoice automation via browser</li>
+        <li>SA fills chassis no + service type → system does the rest</li>
+        <li>Fallback alert if automation fails</li>
+      </ul>
+      <div class="tile-badge p4-badge">Phase 4</div>
+    </div>
+  </div>
+
+  <!-- PHASE 5 -->
+  <div class="section-header">
+    <div class="section-label">Phase 5 — Support & Management</div>
+    <div class="section-note">Estimated Q3 2027</div>
+  </div>
+  <div class="app-grid">
+    <div class="app-tile soon">
+      <div class="tile-icon">📱</div>
+      <div class="tile-name">Online Marketing</div>
+      <div class="tile-desc">Monitor social media performance, plan content calendar, track lead sources.</div>
+      <ul class="tile-features">
+        <li>Dashboard: Facebook, Instagram, TikTok stats</li>
+        <li>Lead source tracking (which platform → enquiry)</li>
+        <li>Content calendar</li>
+      </ul>
+      <div class="tile-badge soon-badge">Phase 5</div>
+    </div>
+
+    <div class="app-tile soon">
+      <div class="tile-icon">👥</div>
+      <div class="tile-name">HR & Training</div>
+      <div class="tile-desc">Staff training schedule, Hino compliance tracking, KPI dashboard pulling data from all modules.</div>
+      <ul class="tile-features">
+        <li>Annual training calendar per department</li>
+        <li>Hino-mandated training compliance</li>
+        <li>KPI: tech efficiency, CSO visits, salesman conversion</li>
+        <li>Leave tracker</li>
+      </ul>
+      <div class="tile-badge soon-badge">Phase 5</div>
+    </div>
+  </div>
+
+  <!-- ROADMAP TABLE -->
+  <div class="section-header" style="margin-top: 48px;">
+    <div class="section-label">Full Roadmap</div>
+    <div class="section-note">Last updated 17 May 2026</div>
+  </div>
+  <table class="roadmap-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Module</th>
+        <th>Department</th>
+        <th>Priority</th>
+        <th>Phase</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>—</td>
+        <td><strong>Quotation App</strong></td>
+        <td>Sales</td>
+        <td><span class="priority-dot p-critical"></span>Critical</td>
+        <td>—</td>
+        <td><span class="status-pill s-live">Live</span></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><strong>Customer & Fleet Database</strong></td>
+        <td>Sales / Admin</td>
+        <td><span class="priority-dot p-critical"></span>Critical</td>
+        <td>Phase 1</td>
+        <td><span class="status-pill s-next">Up Next</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><strong>Stock Card & WIP Tracker</strong></td>
+        <td>Sales</td>
+        <td><span class="priority-dot p-critical"></span>Critical</td>
+        <td>Phase 1</td>
+        <td><span class="status-pill s-next">Up Next</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><strong>Second Hand & Trade-In</strong></td>
+        <td>Sales</td>
+        <td><span class="priority-dot p-high"></span>High</td>
+        <td>Phase 2</td>
+        <td><span class="status-pill s-backlog">Backlog</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><strong>Document Library</strong></td>
+        <td>Sales</td>
+        <td><span class="priority-dot p-high"></span>High</td>
+        <td>Phase 2</td>
+        <td><span class="status-pill s-backlog">Backlog</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><strong>Workshop CRM & Marketing</strong></td>
+        <td>Workshop</td>
+        <td><span class="priority-dot p-high"></span>High</td>
+        <td>Phase 3</td>
+        <td><span class="status-pill s-backlog">Backlog</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td><strong>Parts Department</strong></td>
+        <td>Parts</td>
+        <td><span class="priority-dot p-high"></span>High</td>
+        <td>Phase 3</td>
+        <td><span class="status-pill s-backlog">Backlog</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td><strong>Workshop Operations</strong></td>
+        <td>Workshop</td>
+        <td><span class="priority-dot p-high"></span>High</td>
+        <td>Phase 4</td>
+        <td><span class="status-pill s-backlog">Backlog</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td><strong>HDMS Integration</strong></td>
+        <td>Admin</td>
+        <td><span class="priority-dot p-medium"></span>Medium</td>
+        <td>Phase 4</td>
+        <td><span class="status-pill s-backlog">Backlog</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td><strong>Online Marketing</strong></td>
+        <td>Marketing</td>
+        <td><span class="priority-dot p-low"></span>Low</td>
+        <td>Phase 5</td>
+        <td><span class="status-pill s-backlog">Backlog</span></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td><strong>HR & Training</strong></td>
+        <td>HR</td>
+        <td><span class="priority-dot p-low"></span>Low</td>
+        <td>Phase 5</td>
+        <td><span class="status-pill s-backlog">Backlog</span></td>
+      </tr>
+    </tbody>
+  </table>
+
 </main>
 
 <footer>
   <div class="footer-left">
     &copy; 2026 <strong>Soon Seng Motors Enterprise (1988) Sdn. Bhd.</strong> &mdash; Kota Bharu, Kelantan
   </div>
-  <span class="version-tag">v1.0</span>
+  <span class="version-tag">v1.1 · 10 modules planned</span>
 </footer>
 
 <script>
